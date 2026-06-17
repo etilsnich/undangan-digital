@@ -1,8 +1,12 @@
 <?php
 
-// 1. Paksa Laravel pakai folder /tmp bawaan Vercel yang punya izin Write/Tulis
+// 1. Paksa server muntahin error PHP murni ke layar browser biar ketahuan pelakunya
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+// 2. Paksa Laravel pakai folder /tmp bawaan Vercel
 if (isset($_SERVER['VERCEL_URL'])) {
-    // Buat folder internal yang dibutuhkan Laravel di memory serverless
     $storageFolders = [
         '/tmp/storage/framework/views',
         '/tmp/storage/framework/cache',
@@ -15,10 +19,9 @@ if (isset($_SERVER['VERCEL_URL'])) {
         }
     }
 
-    // Bind atau set environment variable storage path secara dinamis sebelum Laravel di-load
     putenv('APP_STORAGE=/tmp/storage');
     $_ENV['APP_STORAGE'] = '/tmp/storage';
 }
 
-// 2. Oper traffic ke index utama Laravel seperti biasa
+// 3. Panggil Laravel
 require __DIR__ . '/../public/index.php';
