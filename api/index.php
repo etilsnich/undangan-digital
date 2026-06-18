@@ -23,5 +23,7 @@ if (isset($_SERVER['VERCEL_URL'])) {
     $_ENV['APP_STORAGE'] = '/tmp/storage';
 }
 
+$basePath = isset($_SERVER['VERCEL_URL']) ? '/var/task/user' : dirname(__DIR__);
+
 // 3. Panggil Laravel
 require __DIR__ . '/../public/index.php';
