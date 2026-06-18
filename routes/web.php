@@ -4,7 +4,10 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\UndanganController;
 
-// Jalur buat buka halaman undangan
+// Jalur UTAMA (/) langsung nampilin halaman undangan
+Route::get('/', [UndanganController::class, 'index']);
+
+// Jalur cadangan kalau mau diakses lewat /undangan juga bisa
 Route::get('/undangan', [UndanganController::class, 'index']);
 
 // Jalur buat memproses kiriman data form Firestore
