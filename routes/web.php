@@ -1,21 +1,19 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\UndanganController;
 
-// Trik sulap bungkam VS Code buat Route dan Artisan
-$route = 'Route';
-$artisan = 'Artisan';
+// Jalur buat buka halaman undangan
+Route::get('/undangan', [UndanganController::class, 'index']);
 
-// Jalur buat buka halaman undangan estetiknya
-$route::get('/undangan', [UndanganController::class, 'index']);
+// Jalur buat memproses kiriman data form Firestore
+Route::post('/test-firestore', [UndanganController::class, 'testFirestore']);
 
-// Jalur buat memproses kiriman data form-nya
-$route::post('/test-firestore', [UndanganController::class, 'testFirestore']);
-
-// Jalur pembersih cache dengan gaya trik dinamis yang sama
-$route::get('/clear', function() use ($artisan) {
-    $artisan::call('config:clear');
-    $artisan::call('cache:clear');
-    $artisan::call('view:clear');
+// Jalur pembersih cache standar Laravel
+Route::get('/clear', function() {
+    Artisan::call('config:clear');
+    Artisan::call('cache:clear');
+    Artisan::call('view:clear');
     return "Cache cleared successfully!";
 });
