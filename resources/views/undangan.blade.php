@@ -93,8 +93,8 @@
         <img src="{{ asset('images/bunga-atas.png') }}" class="absolute top-0 right-0 w-44 z-20 pointer-events-none opacity-95 scale-x-[-1]" alt="Bunga Kanan">
 
         <!-- ORNAMEN DAUN EMAS BAWAH -->
-        <img src="{{ asset('images/daun-emas.png') }}" class="absolute bottom-0 left-0 w-32 z-20 pointer-events-none opacity-80" alt="Daun Kiri">
-        <img src="{{ asset('images/daun-emas.png') }}" class="absolute bottom-0 right-0 w-32 z-20 pointer-events-none opacity-80 scale-x-[-1]" alt="Daun Kanan">
+        <img src="{{ asset('images/daun-biru.png') }}" class="absolute bottom-0 left-0 w-32 z-20 pointer-events-none opacity-80" alt="Daun Kiri">
+        <img src="{{ asset('images/daun-biru.png') }}" class="absolute bottom-0 right-0 w-32 z-20 pointer-events-none opacity-80 scale-x-[-1]" alt="Daun Kanan">
 
         <!-- KONTEN ATAS -->
         <div class="z-30 text-center mt-10">
