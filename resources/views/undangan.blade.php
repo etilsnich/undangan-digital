@@ -50,13 +50,13 @@
 
         /* Efek Bingkai FOTO Organik (Blob / Sapuan Kuas) */
         .mask-blob {
-            /* Ini bikin bentuk fotonya nggak bulat sempurna ala estetik tanpa perlu repot edit foto di Photoshop */
-            border-radius: 41% 59% 46% 54% / 41% 47% 53% 59%;
-            animation: bentukOrganik 8s ease-in-out infinite alternate;
+            border-radius: 73% 27% 33% 67% / 46% 62% 38% 54%;
+            animation: bentukOrganik 6s ease-in-out infinite alternate;
         }
 
         @keyframes bentukOrganik {
-            0% { border-radius: 41% 59% 46% 54% / 41% 47% 53% 59%; }
+            0% { border-radius: 73% 27% 33% 67% / 46% 62% 38% 54%; }
+            50% { border-radius: 41% 59% 46% 54% / 41% 47% 53% 59%; }
             100% { border-radius: 54% 46% 55% 45% / 51% 44% 56% 49%; }
         }
     </style>
@@ -89,27 +89,33 @@
 
         <!-- ORNAMEN BUNGA KANAN & KIRI ATAS -->
         <!-- Pastikan lu udah masukin gambar bunganya ke folder public/images/ di project Laravel lu ya cuy -->
-        <img src="{{ asset('images/bunga-atas.png') }}" class="absolute top-0 left-0 w-44 z-20 pointer-events-none opacity-95" alt="Bunga Kiri">
-        <img src="{{ asset('images/bunga-atas.png') }}" class="absolute top-0 right-0 w-44 z-20 pointer-events-none opacity-95 scale-x-[-1]" alt="Bunga Kanan">
+        <img src="{{ asset('images/bunga-atas.png') }}" class="absolute -top-12 -left-12 w-64 z-20 pointer-events-none opacity-95" alt="Bunga Kiri">
+        <img src="{{ asset('images/bunga-atas.png') }}" class="absolute -top-12 -right-12 w-64 z-20 pointer-events-none opacity-95 scale-x-[-1]" alt="Bunga Kanan">
 
         <!-- ORNAMEN DAUN EMAS BAWAH -->
-        <img src="{{ asset('images/daun-biru.png') }}" class="absolute bottom-0 left-0 w-32 z-20 pointer-events-none opacity-80" alt="Daun Kiri">
-        <img src="{{ asset('images/daun-biru.png') }}" class="absolute bottom-0 right-0 w-32 z-20 pointer-events-none opacity-80 scale-x-[-1]" alt="Daun Kanan">
+        <img src="{{ asset('images/daun-biru.png') }}" class="absolute -bottom-8 -left-8 w-48 z-20 pointer-events-none opacity-80" alt="Daun Kiri">
+        <img src="{{ asset('images/daun-biru.png') }}" class="absolute -bottom-8 -right-8 w-48 z-20 pointer-events-none opacity-80 scale-x-[-1]" alt="Daun Kanan">
 
         <!-- KONTEN ATAS -->
-        <div class="z-30 text-center mt-10">
-            <p class="text-[11px] uppercase tracking-[0.3em] text-[#4a6382] font-bold mb-6">The Wedding Of</p>
+        <div class="z-30 text-center mt-12">
+            <p class="text-[11px] uppercase tracking-[0.3em] text-[#4a6382] font-bold mb-4">The Wedding Of</p>
         </div>
 
         <!-- FOTO TENGAH (MENGGUNAKAN EFEK BLOB/KUAS) -->
-        <div class="relative my-2 z-30">
-            <div class="w-64 h-64 mask-blob overflow-hidden shadow-2xl mx-auto p-1.5 bg-gradient-to-tr from-[#88a5c3] to-sky-50">
+        <div class="relative my-4 z-30 flex justify-center items-center h-72">
+            <!-- Lapisan Ornamen 1 (Warna Biru Tua, Berputar) -->
+            <div class="absolute w-64 h-64 bg-[#4a6382] mask-blob opacity-20 animate-spin-slow"></div>
+            <!-- Lapisan Ornamen 2 (Warna Biru Muda, Statis) -->
+            <div class="absolute w-60 h-60 bg-[#a1bad2] mask-blob opacity-40" style="animation-delay: -3s;"></div>
+            
+            <!-- Foto Utama -->
+            <div class="relative w-56 h-56 mask-blob overflow-hidden shadow-2xl p-1 bg-white z-10">
                 <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=500&q=80" alt="Mempelai" class="w-full h-full object-cover mask-blob">
             </div>
-            
-            <div class="text-center mt-6">
-                <h1 class="font-wedding text-[4rem] leading-none text-[#4a6382] font-medium drop-shadow-sm">Anggita & Roy</h1>
-            </div>
+        </div>
+
+        <div class="text-center z-30 mt-2">
+            <h1 class="font-wedding text-[4.5rem] leading-none text-[#4a6382] font-medium drop-shadow-sm">Anggita & Roy</h1>
         </div>
 
         <!-- KONTEN NAMA TAMU -->
