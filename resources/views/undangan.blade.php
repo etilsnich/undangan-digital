@@ -88,8 +88,13 @@
         <div id="particles-js" class="absolute inset-0 z-10 pointer-events-none"></div>
 
         <!-- ORNAMEN BUNGA KANAN & KIRI ATAS -->
-        <img src="{{ asset('images/bunga-atas.png') }}" class="absolute -top-24 -left-20 w-[300px] z-20 pointer-events-none opacity-95" alt="Bunga Kiri">
-        <img src="{{ asset('images/bunga-atas.png') }}" class="absolute -top-24 -right-20 w-[300px] z-20 pointer-events-none opacity-95 scale-x-[-1]" alt="Bunga Kanan">
+        <!-- Ukuran dikecilin (w-[220px]) dan didorong mentok ke pojok atas -->
+        <img src="{{ asset('images/bunga-atas.png') }}" class="absolute top-[-70px] left-[-70px] w-[220px] z-20 pointer-events-none opacity-95" alt="Bunga Kiri">
+        <img src="{{ asset('images/bunga-atas.png') }}" class="absolute top-[-70px] right-[-70px] w-[220px] z-20 pointer-events-none opacity-95 scale-x-[-1]" alt="Bunga Kanan">
+
+        <!-- ORNAMEN TENGAH (Di pinggir KIRI & KANAN layar) -->
+        <img src="{{ asset('images/ornamen-tengah.jpg') }}" class="absolute top-[35%] left-[-80px] w-[180px] z-0 pointer-events-none opacity-60" alt="Ornamen Tengah Kiri">
+        <img src="{{ asset('images/ornamen-tengah.jpg') }}" class="absolute top-[35%] right-[-80px] w-[180px] z-0 pointer-events-none opacity-60 scale-x-[-1]" alt="Ornamen Tengah Kanan">
 
         <!-- ORNAMEN DAUN EMAS BAWAH -->
         <img src="{{ asset('images/daun-biru.png') }}" class="absolute -bottom-20 -left-16 w-60 z-20 pointer-events-none opacity-80" alt="Daun Kiri">
@@ -100,19 +105,11 @@
             <p class="text-[11px] uppercase tracking-[0.3em] text-[#4a6382] font-bold mb-4">The Wedding Of</p>
         </div>
 
-        <!-- FOTO TENGAH (MENGGUNAKAN EFEK BLOB/KUAS) -->
+        <!-- FOTO TENGAH (Bulat Bersih) -->
         <div class="relative my-4 z-30 flex justify-center items-center h-80 w-full">
-            
-            <!-- GAMBAR ORNAMEN ABSTRACT (BACKGROUND FOTO) -->
-            <!-- Nanti lu masukin gambar abstract lu ke folder images dengan nama 'ornamen-tengah.png' -->
-            <img src="{{ asset('images/ornamen-tengah.jpg') }}" class="absolute w-[320px] h-auto z-0 pointer-events-none opacity-90" alt="Ornamen Belakang">
-            
-            <!-- Foto Utama Mempelai -->
-            <!-- Gua balikin fotonya jadi bulat sempurna (rounded-full) biar ornamen abstract di belakangnya lebih menonjol -->
             <div class="relative w-56 h-56 rounded-full overflow-hidden shadow-xl p-1.5 bg-white/80 z-10 border border-white">
                 <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=500&q=80" alt="Mempelai" class="w-full h-full object-cover rounded-full">
             </div>
-            
         </div>
 
         <div class="text-center z-30 mt-2">
