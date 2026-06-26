@@ -93,8 +93,15 @@
         <img src="{{ asset('images/bunga-atas.png') }}" class="absolute top-[-70px] right-[-70px] w-[220px] z-20 pointer-events-none opacity-95 scale-x-[-1]" alt="Bunga Kanan">
 
         <!-- ORNAMEN TENGAH (Di pinggir KIRI & KANAN layar) -->
-        <img src="{{ asset('images/ornamen-tengah.jpg') }}" class="absolute top-[35%] left-[-80px] w-[180px] z-0 pointer-events-none opacity-60" alt="Ornamen Tengah Kiri">
-        <img src="{{ asset('images/ornamen-tengah.jpg') }}" class="absolute top-[35%] right-[-80px] w-[180px] z-0 pointer-events-none opacity-60 scale-x-[-1]" alt="Ornamen Tengah Kanan">
+        <img src="{{ asset('images/ornamen-tengah.jpg') }}" 
+             class="absolute top-0 left-[-40px] h-full w-[180px] object-cover z-10 pointer-events-none opacity-40 mix-blend-multiply" 
+             style="-webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%); mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);"
+             alt="Ornamen Tengah Kiri">
+             
+        <img src="{{ asset('images/ornamen-tengah.jpg') }}" 
+             class="absolute top-0 right-[-40px] h-full w-[180px] object-cover z-10 pointer-events-none opacity-40 mix-blend-multiply scale-x-[-1]" 
+             style="-webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%); mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);"
+             alt="Ornamen Tengah Kanan">
 
         <!-- ORNAMEN DAUN EMAS BAWAH -->
         <img src="{{ asset('images/daun-biru.png') }}" class="absolute -bottom-20 -left-16 w-60 z-20 pointer-events-none opacity-80" alt="Daun Kiri">
