@@ -40,6 +40,25 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Background Watercolor Custom */
+        .bg-cover-watercolor {
+            background: linear-gradient(135deg, #e0f2fe 0%, #ffffff 50%, #bae6fd 100%);
+            /* Kalau punya gambar background awan/watercolor, bisa aktifkan baris di bawah: */
+            /* background-image: url('{{ asset("images/bg-watercolor.jpg") }}'); background-size: cover; */
+        }
+
+        /* Efek Bingkai FOTO Organik (Blob / Sapuan Kuas) */
+        .mask-blob {
+            /* Ini bikin bentuk fotonya nggak bulat sempurna ala estetik tanpa perlu repot edit foto di Photoshop */
+            border-radius: 41% 59% 46% 54% / 41% 47% 53% 59%;
+            animation: bentukOrganik 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes bentukOrganik {
+            0% { border-radius: 41% 59% 46% 54% / 41% 47% 53% 59%; }
+            100% { border-radius: 54% 46% 55% 45% / 51% 44% 56% 49%; }
+        }
     </style>
 </head>
 <body class="bg-stone-100 antialiased flex justify-center items-center min-h-screen relative overflow-x-hidden">
@@ -64,36 +83,50 @@
     <!-- ======================================================== -->
     <!-- 1. HALAMAN COVER / OPENING (DENGAN PARTIKEL GEMBUL)     -->
     <!-- ======================================================== -->
-    <div id="cover-page" class="fixed inset-0 z-50 max-w-md mx-auto bg-watercolor flex flex-col justify-between items-center py-16 px-6 shadow-2xl transition-all duration-1000 ease-in-out border-x border-blue-200">
+    <div id="cover-page" class="fixed inset-0 z-50 max-w-md mx-auto bg-cover-watercolor flex flex-col justify-between items-center py-12 px-6 shadow-2xl transition-all duration-1000 ease-in-out border-x border-blue-200 overflow-hidden">
+        
         <div id="particles-js" class="absolute inset-0 z-10 pointer-events-none"></div>
 
-        <div class="absolute top-4 left-4 text-blue-400 opacity-60 text-4xl select-none z-20">🌿</div>
-        <div class="absolute top-4 right-4 text-blue-400 opacity-60 text-4xl select-none scale-x-[-1] z-20">🌿</div>
+        <!-- ORNAMEN BUNGA KANAN & KIRI ATAS -->
+        <!-- Pastikan lu udah masukin gambar bunganya ke folder public/images/ di project Laravel lu ya cuy -->
+        <img src="{{ asset('images/bunga-atas.png') }}" class="absolute top-0 left-0 w-44 z-20 pointer-events-none opacity-95" alt="Bunga Kiri">
+        <img src="{{ asset('images/bunga-atas.png') }}" class="absolute top-0 right-0 w-44 z-20 pointer-events-none opacity-95 scale-x-[-1]" alt="Bunga Kanan">
 
-        <div class="text-center mt-4 z-20"><p class="text-xs uppercase tracking-[0.2em] text-slate-600 font-semibold">The Wedding Of</p></div>
+        <!-- ORNAMEN DAUN EMAS BAWAH -->
+        <img src="{{ asset('images/daun-emas.png') }}" class="absolute bottom-0 left-0 w-32 z-20 pointer-events-none opacity-80" alt="Daun Kiri">
+        <img src="{{ asset('images/daun-emas.png') }}" class="absolute bottom-0 right-0 w-32 z-20 pointer-events-none opacity-80 scale-x-[-1]" alt="Daun Kanan">
 
-        <div class="relative my-6 z-20">
-            <div class="w-64 h-64 rounded-full overflow-hidden border-4 border-white shadow-lg p-1 bg-gradient-to-tr from-blue-300 to-sky-100">
-                <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=500&q=80" alt="Mempelai" class="w-full h-full object-cover rounded-full">
+        <!-- KONTEN ATAS -->
+        <div class="z-30 text-center mt-10">
+            <p class="text-[11px] uppercase tracking-[0.3em] text-[#4a6382] font-bold mb-6">The Wedding Of</p>
+        </div>
+
+        <!-- FOTO TENGAH (MENGGUNAKAN EFEK BLOB/KUAS) -->
+        <div class="relative my-2 z-30">
+            <div class="w-64 h-64 mask-blob overflow-hidden shadow-2xl mx-auto p-1.5 bg-gradient-to-tr from-[#88a5c3] to-sky-50">
+                <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=500&q=80" alt="Mempelai" class="w-full h-full object-cover mask-blob">
+            </div>
+            
+            <div class="text-center mt-6">
+                <h1 class="font-wedding text-[4rem] leading-none text-[#4a6382] font-medium drop-shadow-sm">Anggita & Roy</h1>
             </div>
         </div>
 
-        <div class="text-center z-20"><h1 class="font-wedding text-5xl text-slate-700 font-medium">Anggita & Roy</h1></div>
-
-        <div class="text-center space-y-2 max-w-xs z-20">
-            <p class="text-xs text-slate-600 italic">Kepada Yth. Bapak/Ibu/Saudara/i</p>
-            <h2 class="text-xl font-bold text-slate-800 tracking-wide border-b border-slate-300 pb-2">{{ request('to', 'Nama Tamu') }}</h2>
-            <p class="text-[10px] text-slate-500 leading-relaxed">*Mohon maaf apabila ada kesalahan pada penulisan nama dan gelar</p>
+        <!-- KONTEN NAMA TAMU -->
+        <div class="text-center space-y-3 max-w-xs z-30 mb-8">
+            <p class="text-xs text-slate-700 font-medium">Kepada Yth. Bapak/Ibu/Saudara/i</p>
+            <h2 class="text-2xl font-bold text-[#4a6382] tracking-wide">{{ request('to', 'Nama Tamu') }}</h2>
+            <p class="text-[10px] text-slate-600 leading-relaxed italic max-w-[250px] mx-auto">*Mohon maaf apabila ada kesalahan pada penulisan nama dan gelar</p>
         </div>
 
-        <div class="w-full px-8 z-20">
-            <button onclick="bukaUndangan()" class="w-full bg-slate-700 hover:bg-slate-800 text-white font-medium py-3 px-4 rounded-xl transition duration-300 text-sm shadow-md flex justify-center items-center gap-2 tracking-wide uppercase">
+        <!-- TOMBOL BUKA UNDANGAN -->
+        <div class="w-full px-8 z-30 mb-6">
+            <!-- Warna tombol dan border-radius disesuaikan dengan contoh gambar -->
+            <button onclick="bukaUndangan()" class="w-full bg-[#4a6382] hover:bg-[#384e68] text-white font-semibold py-3 px-4 rounded-full transition duration-300 text-sm shadow-lg flex justify-center items-center gap-2 tracking-wide">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 19v-8.93a2 2 0 01.89-1.664l8-5.333a2 2 0 012.22 0l8 5.333A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5m0 0l-1.14.76a2 2 0 01-2.22 0l-1.14-.76" /></svg>
                 Buka Undangan
             </button>
         </div>
-        <div class="absolute bottom-4 left-4 text-blue-400 opacity-40 text-4xl select-none scale-y-[-1] z-20">🌿</div>
-        <div class="absolute bottom-4 right-4 text-blue-400 opacity-40 text-4xl select-none scale-[-1] z-20">🌿</div>
     </div>
 
 
