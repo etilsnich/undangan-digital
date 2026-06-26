@@ -88,13 +88,12 @@
         <div id="particles-js" class="absolute inset-0 z-10 pointer-events-none"></div>
 
         <!-- ORNAMEN BUNGA KANAN & KIRI ATAS -->
-        <!-- Pastikan lu udah masukin gambar bunganya ke folder public/images/ di project Laravel lu ya cuy -->
-        <img src="{{ asset('images/bunga-atas.png') }}" class="absolute -top-12 -left-12 w-64 z-20 pointer-events-none opacity-95" alt="Bunga Kiri">
-        <img src="{{ asset('images/bunga-atas.png') }}" class="absolute -top-12 -right-12 w-64 z-20 pointer-events-none opacity-95 scale-x-[-1]" alt="Bunga Kanan">
+        <img src="{{ asset('images/bunga-atas.png') }}" class="absolute -top-24 -left-20 w-[300px] z-20 pointer-events-none opacity-95" alt="Bunga Kiri">
+        <img src="{{ asset('images/bunga-atas.png') }}" class="absolute -top-24 -right-20 w-[300px] z-20 pointer-events-none opacity-95 scale-x-[-1]" alt="Bunga Kanan">
 
         <!-- ORNAMEN DAUN EMAS BAWAH -->
-        <img src="{{ asset('images/daun-biru.png') }}" class="absolute -bottom-8 -left-8 w-48 z-20 pointer-events-none opacity-80" alt="Daun Kiri">
-        <img src="{{ asset('images/daun-biru.png') }}" class="absolute -bottom-8 -right-8 w-48 z-20 pointer-events-none opacity-80 scale-x-[-1]" alt="Daun Kanan">
+        <img src="{{ asset('images/daun-biru.png') }}" class="absolute -bottom-20 -left-16 w-60 z-20 pointer-events-none opacity-80" alt="Daun Kiri">
+        <img src="{{ asset('images/daun-biru.png') }}" class="absolute -bottom-20 -right-16 w-60 z-20 pointer-events-none opacity-80 scale-x-[-1]" alt="Daun Kanan">
 
         <!-- KONTEN ATAS -->
         <div class="z-30 text-center mt-12">
@@ -102,16 +101,18 @@
         </div>
 
         <!-- FOTO TENGAH (MENGGUNAKAN EFEK BLOB/KUAS) -->
-        <div class="relative my-4 z-30 flex justify-center items-center h-72">
-            <!-- Lapisan Ornamen 1 (Warna Biru Tua, Berputar) -->
-            <div class="absolute w-64 h-64 bg-[#4a6382] mask-blob opacity-20 animate-spin-slow"></div>
-            <!-- Lapisan Ornamen 2 (Warna Biru Muda, Statis) -->
-            <div class="absolute w-60 h-60 bg-[#a1bad2] mask-blob opacity-40" style="animation-delay: -3s;"></div>
+        <div class="relative my-4 z-30 flex justify-center items-center h-80 w-full">
             
-            <!-- Foto Utama -->
-            <div class="relative w-56 h-56 mask-blob overflow-hidden shadow-2xl p-1 bg-white z-10">
-                <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=500&q=80" alt="Mempelai" class="w-full h-full object-cover mask-blob">
+            <!-- GAMBAR ORNAMEN ABSTRACT (BACKGROUND FOTO) -->
+            <!-- Nanti lu masukin gambar abstract lu ke folder images dengan nama 'ornamen-tengah.png' -->
+            <img src="{{ asset('images/ornamen-tengah.jpg') }}" class="absolute w-[320px] h-auto z-0 pointer-events-none opacity-90" alt="Ornamen Belakang">
+            
+            <!-- Foto Utama Mempelai -->
+            <!-- Gua balikin fotonya jadi bulat sempurna (rounded-full) biar ornamen abstract di belakangnya lebih menonjol -->
+            <div class="relative w-56 h-56 rounded-full overflow-hidden shadow-xl p-1.5 bg-white/80 z-10 border border-white">
+                <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=500&q=80" alt="Mempelai" class="w-full h-full object-cover rounded-full">
             </div>
+            
         </div>
 
         <div class="text-center z-30 mt-2">
