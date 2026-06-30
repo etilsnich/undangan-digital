@@ -448,8 +448,9 @@
                 </div>
 
                 <div class="w-full max-w-sm bg-card-watercolor border border-white/60 shadow-xl p-5 space-y-4">
+                    
                     <div class="border-b border-slate-300 pb-2 flex justify-center items-center gap-1.5 text-slate-700 text-xs font-semibold">
-                        <span>📩</span> <span>0 Ucapan</span>
+                        <span>📩</span> <span>{{ isset($ucapans) ? count($ucapans) : 0 }} Ucapan</span>
                     </div>
 
                     @if(session('sukses'))
@@ -460,14 +461,16 @@
 
                     <form action="{{ url('/test-firestore') }}" method="POST" class="space-y-3">
                         @csrf
+                        <input type="hidden" name="konfirmasi" value="Hadir">
+                        
                         <div class="w-full">
                             <input type="text" name="nama" value="{{ request('to') }}" placeholder="Nama Anda" required 
                                    class="w-full px-3 py-2 border border-slate-300 text-slate-700 text-xs focus:outline-none focus:ring-1 focus:ring-slate-400 bg-white placeholder-slate-400">
                         </div>
+                        
                         <div class="w-full relative">
                             <textarea name="pesan" rows="3" placeholder="Berikan Ucapan & Doa" required 
                                       class="w-full px-3 py-2 border border-slate-300 text-slate-700 text-xs focus:outline-none focus:ring-1 focus:ring-slate-400 bg-white placeholder-slate-400 resize-none"></textarea>
-                            <span class="absolute bottom-1 right-2 text-[10px] text-slate-400">500</span>
                         </div>
                         
                         <div class="flex justify-start">
@@ -476,6 +479,30 @@
                             </button>
                         </div>
                     </form>
+
+                    <div class="mt-4 pt-4 border-t border-slate-300 h-64 overflow-y-auto pr-2 space-y-3 custom-scrollbar">
+                        @if(empty($ucapans))
+                            <p class="text-center text-xs text-slate-500 italic mt-4">Belum ada ucapan, jadilah yang pertama!</p>
+                        @else
+                            @foreach($ucapans as $ucapan)
+                                <div class="bg-white/70 p-3 shadow-sm border border-white flex flex-col gap-2">
+                                    <div class="flex items-center gap-2">
+                                        <div class="bg-slate-700 text-white font-bold w-7 h-7 flex items-center justify-center text-[11px] uppercase">
+                                            {{ substr($ucapan['nama'], 0, 1) }}
+                                        </div>
+                                        <div class="flex flex-col leading-tight">
+                                            <span class="font-bold text-[13px] text-slate-800">{{ $ucapan['nama'] }}</span>
+                                            <span class="text-[10px] text-slate-500">
+                                                {{ \Carbon\Carbon::parse($ucapan['createdAt'])->diffForHumans() }}
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <p class="text-xs text-slate-700 italic">"{{ $ucapan['pesan'] }}"</p>
+                                </div>
+                            @endforeach
+                        @endif
+                    </div>
+                    
                 </div>
             </div>
 
@@ -483,15 +510,57 @@
             <div class="w-full flex flex-col items-center pt-2 efek-scroll">
                 <div class="w-full max-w-sm bg-card-watercolor border border-white/60 shadow-xl p-6 text-center space-y-4">
                     <p class="text-xs text-slate-700 font-medium leading-relaxed italic max-w-[285px] mx-auto">
-                        Mari bantu kami mempersiapkan acara menjadi lebih baik dengan filling formulir RSVP dibawah ini
+                        Mari bantu kami mempersiapkan acara menjadi lebih baik dengan mengisi formulir RSVP di bawah ini
                     </p>
                     <div class="pt-1">
-                        <button onclick="showToast('Fitur RSVP Siap Digunakan')" class="bg-slate-600 hover:bg-slate-700 text-white text-xs font-semibold py-2.5 px-6 rounded-2xl shadow-md transition duration-200">
+                        <button onclick="document.getElementById('rsvpModal').classList.remove('hidden')" class="bg-slate-600 hover:bg-slate-700 text-white text-xs font-semibold py-2.5 px-6 rounded-2xl shadow-md transition duration-200">
                             Konfirmasi Kehadiran
                         </button>
                     </div>
                 </div>
             </div>
+            
+            <div id="rsvpModal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm flex justify-center items-center px-4 transition-opacity">
+        
+                <div class="bg-white/95 w-full max-w-sm rounded-xl p-6 shadow-2xl border border-blue-100 relative transform transition-all">
+            
+                <button onclick="document.getElementById('rsvpModal').classList.add('hidden')" class="absolute top-3 right-3 text-slate-400 hover:text-slate-700 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+
+                <div class="text-center space-y-1 mb-5">
+                    <h4 class="font-wedding text-4xl text-slate-800 tracking-wide">RSVP</h4>
+                    <p class="text-[11px] text-slate-500 italic">Konfirmasi kehadiran Anda</p>
+                </div>
+
+                <form action="{{ url('/test-firestore') }}" method="POST" class="space-y-4">
+                    @csrf
+                    
+                    <div>
+                        <label class="block text-[11px] text-slate-600 font-semibold mb-1">Nama Tamu</label>
+                        <input type="text" name="nama" value="{{ request('to') }}" required 
+                            class="w-full px-3 py-2 border border-slate-300 rounded-md text-xs text-slate-700 focus:outline-none focus:border-slate-500 bg-white/50">
+                    </div>
+
+                    <div>
+                        <label class="block text-[11px] text-slate-600 font-semibold mb-1">Apakah Anda akan hadir?</label>
+                        <select name="konfirmasi" required class="w-full px-3 py-2 border border-slate-300 rounded-md text-xs text-slate-700 focus:outline-none focus:border-slate-500 bg-white/50">
+                            <option value="Hadir">Ya, Saya Akan Hadir</option>
+                            <option value="Tidak Hadir">Mohon Maaf, Tidak Bisa Hadir</option>
+                        </select>
+                    </div>
+
+                    <input type="hidden" name="pesan" value="Telah mengkonfirmasi status kehadiran melalui form RSVP.">
+
+                    <div class="pt-2">
+                        <button type="submit" class="w-full bg-slate-600 hover:bg-slate-700 text-white text-xs font-semibold py-2.5 rounded-md shadow transition duration-200">
+                            Simpan Konfirmasi
+                        </button>
+                    </div>
+                </form>
+         </div>
 
         </div>
 
