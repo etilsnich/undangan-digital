@@ -480,13 +480,15 @@
                         </div>
                     </form>
 
-                    <div class="mt-4 pt-4 border-t border-slate-300 h-64 overflow-y-auto pr-2 space-y-3 custom-scrollbar">
+                    <div class="mt-4 pt-4 border-t border-slate-300 max-h-64 overflow-y-auto pr-2 space-y-3 custom-scrollbar">
                         @if(empty($ucapans))
-                            <p class="text-center text-xs text-slate-500 italic mt-4">Belum ada ucapan, jadilah yang pertama!</p>
+                            <!-- Margin gua kurangin dikit biar pas di tengah dan gak nyisain ruang kosong -->
+                            <p class="text-center text-xs text-slate-500 italic pb-2">Belum ada ucapan, jadilah yang pertama!</p>
                         @else
                             @foreach($ucapans as $ucapan)
                                 <div class="bg-white/70 p-3 shadow-sm border border-white flex flex-col gap-2">
                                     <div class="flex items-center gap-2">
+                                        <!-- Inisial Nama -->
                                         <div class="bg-slate-700 text-white font-bold w-7 h-7 flex items-center justify-center text-[11px] uppercase">
                                             {{ substr($ucapan['nama'], 0, 1) }}
                                         </div>
