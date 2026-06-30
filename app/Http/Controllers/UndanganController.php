@@ -77,8 +77,7 @@ class UndanganController extends Controller
             curl_close($ch);
 
             // Setelah sukses, lempar balik user ke halaman utama undangan dengan pesan sukses
-            $redir = 'redirect';
-            return $redir('/undangan')->with('sukses', 'Terima kasih! Ucapan Anda berhasil dikirim.');
+            return back()->with('sukses', 'Terima kasih! Ucapan Anda berhasil dikirim.');
 
         } catch (\Exception $e) {
             $resp = 'response';

@@ -780,6 +780,24 @@
             tombolMusik.classList.remove('hidden');
             setTimeout(aktifkanEfekScroll, 100);
         }
+
+        // 1. Pas form diklik Kirim, catat posisi scroll sekarang ke memori browser
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function() {
+                localStorage.setItem('posisiScroll', window.scrollY);
+            });
+        });
+
+        // 2. Pas halaman kelar muat ulang, cek apakah ada catatan posisi scroll sebelumnya
+        window.addEventListener('load', function() {
+            const posisiTerakhir = localStorage.getItem('posisiScroll');
+            if (posisiTerakhir) {
+                // Langsung lompat instan ke posisi pas klik tombol tadi
+                window.scrollTo(0, posisiTerakhir);
+                // Hapus memori biar gak nge-lock terus-terusan
+                localStorage.removeItem('posisiScroll');
+            }
+        });
     </script>
 </body>
 </html>
