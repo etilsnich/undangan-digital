@@ -154,39 +154,24 @@
 
         <div class="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-hidden">
             
-            <!-- KUMPULAN ORNAMEN KIRI (Start dari 12% - tepat di bawah area foto) -->
-            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[12%] left-[-200px] w-[320px] opacity-60 rotate-45 mix-blend-multiply" alt="Ornamen">
-            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[18%] left-[-220px] w-[350px] opacity-50 -rotate-12 mix-blend-multiply" alt="Ornamen">
-            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[24%] left-[-180px] w-[300px] opacity-60 rotate-90 mix-blend-multiply" alt="Ornamen">
-            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[30%] left-[-240px] w-[380px] opacity-40 -rotate-45 mix-blend-multiply" alt="Ornamen">
-            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[36%] left-[-200px] w-[320px] opacity-50 rotate-12 mix-blend-multiply" alt="Ornamen">
-            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[42%] left-[-220px] w-[340px] opacity-60 -rotate-90 mix-blend-multiply" alt="Ornamen">
-            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[48%] left-[-190px] w-[310px] opacity-50 rotate-45 mix-blend-multiply" alt="Ornamen">
-            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[54%] left-[-240px] w-[370px] opacity-40 -rotate-12 mix-blend-multiply" alt="Ornamen">
-            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[60%] left-[-200px] w-[330px] opacity-60 rotate-90 mix-blend-multiply" alt="Ornamen">
-            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[66%] left-[-220px] w-[350px] opacity-50 -rotate-45 mix-blend-multiply" alt="Ornamen">
-            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[72%] left-[-180px] w-[300px] opacity-60 rotate-12 mix-blend-multiply" alt="Ornamen">
-            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[78%] left-[-230px] w-[360px] opacity-40 -rotate-90 mix-blend-multiply" alt="Ornamen">
-            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[84%] left-[-200px] w-[320px] opacity-50 rotate-45 mix-blend-multiply" alt="Ornamen">
-            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[90%] left-[-220px] w-[340px] opacity-60 -rotate-12 mix-blend-multiply" alt="Ornamen">
-            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[96%] left-[-190px] w-[310px] opacity-50 rotate-90 mix-blend-multiply" alt="Ornamen">
+            <!-- 
+              $i = 5  -> Mulai dari 5% (Tepat di bawah area foto hero)
+              $i <= 97 -> Sampai 97% (Mentok ke bawah)
+              $i += 4 -> Jarak kepadatannya (Makin kecil angkanya misal += 3, makin padet numpuk)
+            -->
+            @for ($i = 5; $i <= 97; $i += 4)
+                <!-- ORNAMEN KIRI -->
+                <img src="{{ asset('images/ornamen-tengah.png') }}" 
+                     class="absolute left-[-210px] w-[350px] opacity-50 mix-blend-multiply" 
+                     style="top: {{ $i }}%; transform: rotate({{ $i * 11 }}deg);" 
+                     alt="Ornamen Kiri">
 
-            <!-- KUMPULAN ORNAMEN KANAN (Start dari 12% - tepat di bawah area foto) -->
-            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[12%] right-[-200px] w-[320px] opacity-60 -rotate-45 scale-x-[-1] mix-blend-multiply" alt="Ornamen">
-            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[18%] right-[-220px] w-[350px] opacity-50 rotate-12 scale-x-[-1] mix-blend-multiply" alt="Ornamen">
-            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[24%] right-[-180px] w-[300px] opacity-60 -rotate-90 scale-x-[-1] mix-blend-multiply" alt="Ornamen">
-            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[30%] right-[-240px] w-[380px] opacity-40 rotate-45 scale-x-[-1] mix-blend-multiply" alt="Ornamen">
-            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[36%] right-[-200px] w-[320px] opacity-50 -rotate-12 scale-x-[-1] mix-blend-multiply" alt="Ornamen">
-            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[42%] right-[-220px] w-[340px] opacity-60 rotate-90 scale-x-[-1] mix-blend-multiply" alt="Ornamen">
-            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[48%] right-[-190px] w-[310px] opacity-50 -rotate-45 scale-x-[-1] mix-blend-multiply" alt="Ornamen">
-            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[54%] right-[-240px] w-[370px] opacity-40 rotate-12 scale-x-[-1] mix-blend-multiply" alt="Ornamen">
-            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[60%] right-[-200px] w-[330px] opacity-60 -rotate-90 scale-x-[-1] mix-blend-multiply" alt="Ornamen">
-            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[66%] right-[-220px] w-[350px] opacity-50 rotate-45 scale-x-[-1] mix-blend-multiply" alt="Ornamen">
-            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[72%] right-[-180px] w-[300px] opacity-60 -rotate-12 scale-x-[-1] mix-blend-multiply" alt="Ornamen">
-            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[78%] right-[-230px] w-[360px] opacity-40 rotate-90 scale-x-[-1] mix-blend-multiply" alt="Ornamen">
-            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[84%] right-[-200px] w-[320px] opacity-50 -rotate-45 scale-x-[-1] mix-blend-multiply" alt="Ornamen">
-            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[90%] right-[-220px] w-[340px] opacity-60 rotate-12 scale-x-[-1] mix-blend-multiply" alt="Ornamen">
-            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[96%] right-[-190px] w-[310px] opacity-50 -rotate-90 scale-x-[-1] mix-blend-multiply" alt="Ornamen">
+                <!-- ORNAMEN KANAN -->
+                <img src="{{ asset('images/ornamen-tengah.png') }}" 
+                     class="absolute right-[-210px] w-[350px] opacity-50 mix-blend-multiply" 
+                     style="top: {{ $i }}%; transform: scaleX(-1) rotate({{ $i * 15 }}deg);" 
+                     alt="Ornamen Kanan">
+            @endfor
 
         </div>
         
