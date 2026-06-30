@@ -523,6 +523,16 @@
                 </p>
             </div>
 
+            <div class="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-hidden">
+                <!-- Kiri -->
+                <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[-10%] left-[-190px] w-[320px] opacity-60 rotate-12 mix-blend-multiply" alt="Ornamen">
+                <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[60%] left-[-160px] w-[280px] opacity-50 -rotate-45 mix-blend-multiply" alt="Ornamen">
+                
+                <!-- Kanan -->
+                <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[20%] right-[-190px] w-[320px] opacity-60 -rotate-12 scale-x-[-1] mix-blend-multiply" alt="Ornamen">
+                <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[80%] right-[-160px] w-[280px] opacity-50 rotate-45 scale-x-[-1] mix-blend-multiply" alt="Ornamen">
+            </div>
+
             <!-- WASSALAMUALAIKUM -->
             <div class="relative z-20 mb-8 efek-scroll">
                 <h4 class="font-wedding text-4xl text-slate-800 tracking-wide font-normal">Wassalamualaikum Wr. Wb.</h4>
