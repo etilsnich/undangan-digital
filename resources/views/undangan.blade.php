@@ -93,13 +93,13 @@
         <img src="{{ asset('images/bunga-atas.png') }}" class="absolute top-[-70px] right-[-70px] w-[220px] z-20 pointer-events-none opacity-95 scale-x-[-1]" alt="Bunga Kanan">
 
         <!-- ORNAMEN TENGAH (Di pinggir KIRI & KANAN layar) -->
-        <img src="{{ asset('images/ornamen-tengah.jpg') }}" class="absolute top-[25%] left-[-50px] w-[140px] z-10 pointer-events-none opacity-70 -rotate-12 mix-blend-multiply" alt="Ornamen Kiri 1">
-        <img src="{{ asset('images/ornamen-tengah.jpg') }}" class="absolute top-[50%] left-[-70px] w-[180px] z-10 pointer-events-none opacity-80 rotate-45 mix-blend-multiply" alt="Ornamen Kiri 2">
+        <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[25%] left-[-50px] w-[140px] z-10 pointer-events-none opacity-70 -rotate-12 mix-blend-multiply" alt="Ornamen Kiri 1">
+        <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[50%] left-[-70px] w-[180px] z-10 pointer-events-none opacity-80 rotate-45 mix-blend-multiply" alt="Ornamen Kiri 2">
         <img src="{{ asset('images/ornamen-tengah.jpg') }}" class="absolute top-[75%] left-[-40px] w-[130px] z-10 pointer-events-none opacity-60 -rotate-45 mix-blend-multiply" alt="Ornamen Kiri 3">
 
-        <img src="{{ asset('images/ornamen-tengah.jpg') }}" class="absolute top-[20%] right-[-60px] w-[150px] z-10 pointer-events-none opacity-70 rotate-12 scale-x-[-1] mix-blend-multiply" alt="Ornamen Kanan 1">
-        <img src="{{ asset('images/ornamen-tengah.jpg') }}" class="absolute top-[45%] right-[-80px] w-[190px] z-10 pointer-events-none opacity-80 -rotate-45 scale-x-[-1] mix-blend-multiply" alt="Ornamen Kanan 2">
-        <img src="{{ asset('images/ornamen-tengah.jpg') }}" class="absolute top-[70%] right-[-50px] w-[140px] z-10 pointer-events-none opacity-60 rotate-90 scale-x-[-1] mix-blend-multiply" alt="Ornamen Kanan 3">
+        <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[20%] right-[-60px] w-[150px] z-10 pointer-events-none opacity-70 rotate-12 scale-x-[-1] mix-blend-multiply" alt="Ornamen Kanan 1">
+        <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[45%] right-[-80px] w-[190px] z-10 pointer-events-none opacity-80 -rotate-45 scale-x-[-1] mix-blend-multiply" alt="Ornamen Kanan 2">
+        <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[70%] right-[-50px] w-[140px] z-10 pointer-events-none opacity-60 rotate-90 scale-x-[-1] mix-blend-multiply" alt="Ornamen Kanan 3">
 
         <!-- ORNAMEN DAUN EMAS BAWAH -->
         <img src="{{ asset('images/daun-biru.png') }}" class="absolute -bottom-20 -left-16 w-60 z-20 pointer-events-none opacity-80" alt="Daun Kiri">
