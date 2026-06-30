@@ -459,7 +459,7 @@
                         </div>
                     @endif
 
-                    <form action="{{ url('/test-firestore') }}" method="POST" class="space-y-3">
+                    <form action="/test-firestore" method="POST" class="space-y-3">
                         @csrf
                         <input type="hidden" name="konfirmasi" value="Hadir">
                         
@@ -537,7 +537,7 @@
                     <p class="text-[11px] text-slate-500 italic">Konfirmasi kehadiran Anda</p>
                 </div>
 
-                <form action="{{ url('/test-firestore') }}" method="POST" class="space-y-4">
+                <form action="/test-firestore" method="POST" class="space-y-4">
                     @csrf
                     
                     <div>
