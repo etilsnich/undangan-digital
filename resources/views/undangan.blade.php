@@ -132,7 +132,7 @@
         <!-- KONTEN NAMA TAMU -->
         <div class="text-center space-y-3 max-w-xs z-30 mb-8">
             <p class="text-xs text-slate-700 font-medium">Kepada Yth. Bapak/Ibu/Saudara/i</p>
-            <h2 class="text-2xl font-bold text-[#4a6382] tracking-wide">{{ request('to', 'Nama Tamu') }}</h2>
+            <h2 class="text-2xl font-bold text-[#4a6382] mb-1">{{ request('to', 'Tamu Undangan') }}</h2>
             <p class="text-[10px] text-slate-600 leading-relaxed italic max-w-[250px] mx-auto">*Mohon maaf apabila ada kesalahan pada penulisan nama dan gelar</p>
         </div>
 
@@ -151,6 +151,27 @@
     <!-- 2. ISI KONTEN PANJANG UNDANGAN                           -->
     <!-- ======================================================== -->
     <div id="main-content" class="hidden max-w-md w-full bg-watercolor min-h-screen shadow-2xl border-x border-blue-200 flex flex-col overflow-y-auto">
+
+        <div class="fixed top-0 h-screen max-w-md w-full pointer-events-none z-0 overflow-hidden">
+            
+            <!-- KUMPULAN ORNAMEN KIRI -->
+            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[-5%] left-[-140px] w-[280px] opacity-50 rotate-45 mix-blend-multiply" alt="Ornamen">
+            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[10%] left-[-170px] w-[320px] opacity-60 -rotate-12 mix-blend-multiply" alt="Ornamen">
+            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[25%] left-[-150px] w-[280px] opacity-50 rotate-90 mix-blend-multiply" alt="Ornamen">
+            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[40%] left-[-180px] w-[340px] opacity-40 -rotate-45 mix-blend-multiply" alt="Ornamen">
+            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[55%] left-[-150px] w-[280px] opacity-60 rotate-12 mix-blend-multiply" alt="Ornamen">
+            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[70%] left-[-170px] w-[320px] opacity-50 -rotate-90 mix-blend-multiply" alt="Ornamen">
+            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[85%] left-[-140px] w-[280px] opacity-70 rotate-45 mix-blend-multiply" alt="Ornamen">
+
+            <!-- KUMPULAN ORNAMEN KANAN -->
+            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[-5%] right-[-140px] w-[280px] opacity-50 -rotate-45 scale-x-[-1] mix-blend-multiply" alt="Ornamen">
+            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[10%] right-[-170px] w-[320px] opacity-60 rotate-12 scale-x-[-1] mix-blend-multiply" alt="Ornamen">
+            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[25%] right-[-150px] w-[280px] opacity-50 -rotate-90 scale-x-[-1] mix-blend-multiply" alt="Ornamen">
+            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[40%] right-[-180px] w-[340px] opacity-40 rotate-45 scale-x-[-1] mix-blend-multiply" alt="Ornamen">
+            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[55%] right-[-150px] w-[280px] opacity-60 -rotate-12 scale-x-[-1] mix-blend-multiply" alt="Ornamen">
+            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[70%] right-[-170px] w-[320px] opacity-50 rotate-90 scale-x-[-1] mix-blend-multiply" alt="Ornamen">
+            <img src="{{ asset('images/ornamen-tengah.png') }}" class="absolute top-[85%] right-[-140px] w-[280px] opacity-70 -rotate-45 scale-x-[-1] mix-blend-multiply" alt="Ornamen">
+        </div>
         
         <!-- SECTION 2.1: HERO SCROLL PERTAMA -->
         <div class="relative w-full flex flex-col items-center pb-8">
